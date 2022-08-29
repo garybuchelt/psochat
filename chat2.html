@@ -1,4 +1,53 @@
 <h1>Please click the chat icon on the bottom right of your screen<h1>
 <a href="tel:3362531222">Call us at 336-253-1222</a>
 <img src="gvrcoolimage.png" alt="gvrimage.jpeg" width="1900" height="850">
-<!-- Start of Talkdesk Code -->    <script>      var webchat;      ((window, document, node, props, configs) => {        if (window.TalkdeskChatSDK) {          console.error("TalkdeskChatSDK already included");          return;        }        var divContainer = document.createElement("div");        divContainer.id = node;        document.body.appendChild(divContainer);        var currentDate = new Date().getTime();        var src = `https://talkdeskchatsdk.talkdeskapp.com/talkdeskchatsdk.js?t=` + currentDate;        var script = document.createElement("script");        var firstScriptTag = document.getElementsByTagName("script")[0];        script.type = "text/javascript";        script.charset = "UTF-8";        script.id = "tdwebchatscript";        script.src = src;        script.async = true;        firstScriptTag.parentNode.insertBefore(script, firstScriptTag);        script.onload = () => {          webchat = TalkdeskChatSDK(node, props);          webchat.init(configs);        };      })(        window,        document,        "tdWebchat",        { flowId: "188fe88536a246e0afe20988e4898d55", accountId: "", region: "td-us-1" },        { enableEmoji: true, enableUserInput: true }      );    </script><!-- End of Talkdesk Code -->
+<!-- Start of Talkdesk Code -->
+    <script>
+      var webchat;
+      ((window, document, node, props, configs) => {
+        if (window.TalkdeskChatSDK) {
+          console.error("TalkdeskChatSDK already included");
+          return;
+        }
+        var divContainer = document.createElement("div");
+        divContainer.id = node;
+        document.body.appendChild(divContainer);
+        var currentDate = new Date().getTime();
+        var src = `https://talkdeskchatsdk.talkdeskapp.com/talkdeskchatsdk.js?t=` + currentDate;
+        var script = document.createElement("script");
+        var firstScriptTag = document.getElementsByTagName("script")[0];
+        script.type = "text/javascript";
+        script.charset = "UTF-8";
+        script.id = "tdwebchatscript";
+        script.src = src;
+        script.async = true;
+        firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+        script.onload = () => {
+          webchat = TalkdeskChatSDK(node, props);
+          webchat.init(configs);
+          /*
+           * Send custom data from your website to TalkDesk!
+           * If you would like to do it, you need to remove the following commented code and
+           * modify the webchat.setContextParam parameters to pass in the data you need.
+           */
+           /*function setContext() {
+             webchat.setContextParam({ "var1": "value1", "var2": "value2", "var3": 100 })
+           }
+           // Send data when the chat conversation is initiated
+           webchat.onConversationStart = function() {
+             setContext()
+           }
+           // Send data when the chat widget is open
+           webchat.onOpenWebchat = function() {
+             setContext()
+           }*/
+        };
+      })(
+        window,
+        document,
+        "tdWebchat",
+        { flowId: "188fe88536a246e0afe20988e4898d55", accountId: "", region: "td-us-1" },
+        { enableEmoji: true, enableUserInput: true }
+      );
+    </script>
+<!-- End of Talkdesk Code -->
